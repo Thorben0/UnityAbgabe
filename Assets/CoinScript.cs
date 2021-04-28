@@ -21,7 +21,7 @@ public class CoinScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 1, 0), 5f);
+        transform.Rotate(new Vector3(0, 1, 0), Time.deltaTime * 200);
         float yOff = Mathf.Sin((Time.time + timeOffset) * 3f) * 0.1f;
         transform.position = new Vector3(0, yOff, 0) + basePos;
     }

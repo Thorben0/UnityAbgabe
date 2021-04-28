@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class Sript : MonoBehaviour
 {
-    public Transform myPrefab;
+    public Transform collectablePrefab;
+    public Transform mobPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Spawn coins
         for(int i = 0; i < 10; i++) {
             float x = UnityEngine.Random.Range(-10, 10);
             float z = UnityEngine.Random.Range(-10, 10);
-            Instantiate(myPrefab, new Vector3(x, 0.38f, z), Quaternion.Euler(0f, 0f, 0f));
+            Instantiate(collectablePrefab, new Vector3(x, 0.38f, z), Quaternion.Euler(0f, 0f, 0f));
+        }
+
+        // Spawn Monsters
+        for (int i = 0; i < 10; i++)
+        {
+            float x = UnityEngine.Random.Range(-20, 20);
+            float z = UnityEngine.Random.Range(-20, 20);
+            Instantiate(mobPrefab, new Vector3(x, 1f, z), Quaternion.Euler(0f, 0f, 0f));
         }
     }
 

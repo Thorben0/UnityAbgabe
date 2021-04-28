@@ -9,6 +9,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private float _turnSpeed = 100f;
 
+    private int _score;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,8 +55,9 @@ public class PlayerScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Collectable")){
-            print("collectable");
             other.gameObject.SetActive(false);
+            _score++;
+            Debug.Log("Score: " + _score);
         }
     }
 }
