@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd886fc02e1d1764aa03a6d5af52bb94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPrefab: {fileID: 2194871390830729042, guid: a6ed7e8073062b64f8f772c32ebc5680, type: 3}
+  collectablePrefab: {fileID: 2194871390830729042, guid: a6ed7e8073062b64f8f772c32ebc5680, type: 3}
+  mobPrefab: {fileID: 639813749041506164, guid: 6fab03ffe3c9a6f42ab2a85c08d9dcca, type: 3}
 --- !u!4 &361406786
 Transform:
   m_ObjectHideFlags: 0
@@ -359,7 +360,7 @@ MonoBehaviour:
   target: {fileID: 2046355501}
   horizontalDist: 4
   verticallDist: 1
-  slerp: 0.1
+  slerp: 4
 --- !u!1 &1305643865
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +474,7 @@ GameObject:
   - component: {fileID: 2046355503}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
