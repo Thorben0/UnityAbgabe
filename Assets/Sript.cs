@@ -16,7 +16,7 @@ public class Sript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void SpawnObjects()
@@ -30,16 +30,16 @@ public class Sript : MonoBehaviour
             Vector3 position = new Vector3(x, 0.0f, z);
             Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
             var obj = Instantiate(collectablePrefab, position, rotation);
-            obj.transform.parent = _parent;
-            obj.transform.position = position;
+            //obj.transform.parent = _parent;
+            //obj.transform.position = position;
         }
 
         // Spawn Monsters
-       /* for (int i = 0; i < 10; i++)
-        {
-            float x = UnityEngine.Random.Range(-20, 20);
-            float z = UnityEngine.Random.Range(-20, 20);
-            Instantiate(mobPrefab, new Vector3(x, 1f, z), Quaternion.Euler(0f, 0f, 0f));
-        }*/
+        /* for (int i = 0; i < 10; i++)
+         {
+             float x = UnityEngine.Random.Range(-20, 20);
+             float z = UnityEngine.Random.Range(-20, 20);
+             Instantiate(mobPrefab, new Vector3(x, 1f, z), Quaternion.Euler(0f, 0f, 0f));
+         }*/
     }
 }

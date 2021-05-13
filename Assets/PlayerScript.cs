@@ -58,9 +58,9 @@ public class PlayerScript : MonoBehaviour
         {
             inputRotation -= _turnSpeed;
         }
-        if (inputRotate == 0)
+        if (inputRotation == 0)
         {
-
+            inputRotation = inputRotate * _turnSpeed;
         }
         Quaternion rotation = Quaternion.AngleAxis(inputRotation * Time.deltaTime, Vector3.up);
         transform.rotation *= rotation;
