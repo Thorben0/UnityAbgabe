@@ -13,6 +13,9 @@ public class PlayerScript : MonoBehaviour
 
     private int _score;
 
+    public float inputRotate;
+    public float inputMove;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,11 @@ public class PlayerScript : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
         float inputZ = Input.GetAxis("Vertical");
 
+        if (inputX == 0)
+        {
+            inputX = inputMove;
+        }
+
         Vector3 inputVec = new Vector3(inputX, 0, inputZ);
         Vector3 lookVec = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle));
         Vector3 targetVec = Quaternion.LookRotation(lookVec) * inputVec;
@@ -50,17 +58,21 @@ public class PlayerScript : MonoBehaviour
         {
             inputRotation -= _turnSpeed;
         }
+        if (inputRotate == 0)
+        {
+
+        }
         Quaternion rotation = Quaternion.AngleAxis(inputRotation * Time.deltaTime, Vector3.up);
         transform.rotation *= rotation;
     }
 
     private void FixedUpdate()
     {
-        if(_playground == null)
+        if (_playground == null)
         {
             return;
         }
-        if(transform.position.y < _playground.transform.position.y - 10)
+        if (transform.position.y < _playground.transform.position.y - 10)
         {
             Debug.Log("Player position reset");
             transform.position = _playground.transform.position + new Vector3(0, 1, 0);
@@ -72,7 +84,8 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Collectable")){
+        if (other.CompareTag("Collectable"))
+        {
             other.gameObject.SetActive(false);
             _score++;
             Debug.Log("Score: " + _score);
