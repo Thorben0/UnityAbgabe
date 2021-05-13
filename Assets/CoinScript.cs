@@ -10,12 +10,13 @@ public class CoinScript : MonoBehaviour
     void Start()
     {
         // Damit nicht alle Coins sich synchron bewegen
-        timeOffset = Random.Range(0f, 10f);
+        timeOffset = Random.Range(0f, 360f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 1, 0), Time.deltaTime * 200);
+        timeOffset += Time.deltaTime * 200;
+        transform.rotation = Quaternion.Euler(0, timeOffset, 0);
     }
 }

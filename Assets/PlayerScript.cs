@@ -35,9 +35,10 @@ public class PlayerScript : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
         float inputZ = Input.GetAxis("Vertical");
 
-        if (inputX == 0)
+        // Override by UI Buttons
+        if (inputZ == 0)
         {
-            inputX = inputMove;
+            inputZ = inputMove;
         }
 
         Vector3 inputVec = new Vector3(inputX, 0, inputZ);
@@ -58,6 +59,7 @@ public class PlayerScript : MonoBehaviour
         {
             inputRotation -= _turnSpeed;
         }
+        // Override by UI Buttons
         if (inputRotation == 0)
         {
             inputRotation = inputRotate * _turnSpeed;

@@ -11,6 +11,7 @@ public class Sript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SpawnObjects();
     }
 
     // Update is called once per frame
@@ -27,19 +28,19 @@ public class Sript : MonoBehaviour
         {
             float x = UnityEngine.Random.Range(-10, 10);
             float z = UnityEngine.Random.Range(-10, 10);
-            Vector3 position = new Vector3(x, 0.0f, z);
-            Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
-            var obj = Instantiate(collectablePrefab, position, rotation);
-            //obj.transform.parent = _parent;
-            //obj.transform.position = position;
+            var obj = Instantiate(collectablePrefab);
+            obj.transform.parent = _parent;
+            obj.transform.localPosition = new Vector3(x, 0.5f, z);
         }
 
         // Spawn Monsters
-        /* for (int i = 0; i < 10; i++)
-         {
-             float x = UnityEngine.Random.Range(-20, 20);
-             float z = UnityEngine.Random.Range(-20, 20);
-             Instantiate(mobPrefab, new Vector3(x, 1f, z), Quaternion.Euler(0f, 0f, 0f));
-         }*/
+        for (int i = 0; i < 3; i++)
+        {
+            float x = UnityEngine.Random.Range(-10, 10);
+            float z = UnityEngine.Random.Range(-10, 10);
+            var obj = Instantiate(mobPrefab);
+            obj.transform.parent = _parent;
+            obj.transform.localPosition = new Vector3(x, 0.3f, z);
+        }
     }
 }
