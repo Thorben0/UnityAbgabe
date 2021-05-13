@@ -9,12 +9,14 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private float _turnSpeed = 100f;
 
+    private GameObject _playground;
+
     private int _score;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _playground = GameObject.FindGameObjectWithTag("Playground");
     }
 
     // Update is called once per frame
@@ -50,6 +52,22 @@ public class PlayerScript : MonoBehaviour
         }
         Quaternion rotation = Quaternion.AngleAxis(inputRotation * Time.deltaTime, Vector3.up);
         transform.rotation *= rotation;
+    }
+
+    private void FixedUpdate()
+    {
+        if(_playground == null)
+        {
+            return;
+        }
+        if(transform.position.y < _playground.transform.position.y - 10)
+        {
+            Debug.Log("Player position reset");
+            transform.position = _playground.transform.position + new Vector3(0, 1, 0);
+            transform.rotation = Quaternion.identity;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
