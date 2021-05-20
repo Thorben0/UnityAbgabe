@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectablePrefab: {fileID: 2194871390830729042, guid: a6ed7e8073062b64f8f772c32ebc5680, type: 3}
   mobPrefab: {fileID: 639813749041506164, guid: 6fab03ffe3c9a6f42ab2a85c08d9dcca, type: 3}
-  _spawn: {fileID: 0}
+  _parent: {fileID: 0}
 --- !u!4 &361406786
 Transform:
   m_ObjectHideFlags: 0
@@ -415,7 +415,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dc45c27c433c4cc40a42f6fe626401e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -573,6 +573,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 2
   _turnSpeed: 100
+  inputRotate: 0
+  inputMove: 0
 --- !u!54 &2046355503
 Rigidbody:
   m_ObjectHideFlags: 0
