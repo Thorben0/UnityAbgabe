@@ -6,29 +6,41 @@ public class Sript : MonoBehaviour
 {
     public Transform collectablePrefab;
     public Transform mobPrefab;
+    public Transform _parent;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Spawn coins
-        for(int i = 0; i < 10; i++) {
-            float x = UnityEngine.Random.Range(-10, 10);
-            float z = UnityEngine.Random.Range(-10, 10);
-            Instantiate(collectablePrefab, new Vector3(x, 0.38f, z), Quaternion.Euler(0f, 0f, 0f));
-        }
-
-        // Spawn Monsters
-        for (int i = 0; i < 10; i++)
-        {
-            float x = UnityEngine.Random.Range(-20, 20);
-            float z = UnityEngine.Random.Range(-20, 20);
-            Instantiate(mobPrefab, new Vector3(x, 1f, z), Quaternion.Euler(0f, 0f, 0f));
-        }
+        SpawnObjects();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void SpawnObjects()
+    {
+        Debug.Log("target found");
+        // Spawn coinsn
+        for (int i = 0; i < 10; i++)
+        {
+            float x = UnityEngine.Random.Range(-10, 10);
+            float z = UnityEngine.Random.Range(-10, 10);
+            var obj = Instantiate(collectablePrefab);
+            obj.transform.parent = _parent;
+            obj.transform.localPosition = new Vector3(x, 0.5f, z);
+        }
+
+        // Spawn Monsters
+        for (int i = 0; i < 3; i++)
+        {
+            float x = UnityEngine.Random.Range(-10, 10);
+            float z = UnityEngine.Random.Range(-10, 10);
+            var obj = Instantiate(mobPrefab);
+            obj.transform.parent = _parent;
+            obj.transform.localPosition = new Vector3(x, 0.3f, z);
+        }
     }
 }
